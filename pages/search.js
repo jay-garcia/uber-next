@@ -39,7 +39,7 @@ const Search = () => {
         {/* Saved Places */}
         {/* Confirm Locations*/}
         <Confirm>
-        <button class="bg-black w-full text-white rounded text-center p-3">
+        <button className="bg-black w-full text-white rounded text-center p-3">
         Confirm Location
         </button>
         </Confirm>
