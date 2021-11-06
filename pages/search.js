@@ -1,9 +1,16 @@
-import React from 'react'
+import {useState} from 'react'
 import tw from "tailwind-styled-components"
 import Link from 'next/link'
 
 const Search = () => {
+
+    const [pickup, setPickup] = useState("");
+    const [dropoff, setDropoff] = useState("");
+
+
     return (
+
+        
     
         <Wrapper>
         
@@ -23,8 +30,16 @@ const Search = () => {
             </FromToIcons>
         
             <InputBoxes>
-                <Input placeholder="Enter Pickup Location"/>
-                <Input placeholder="Where to?"/>
+                <Input 
+                    placeholder="Enter Pickup Location"
+                    value={pickup}
+                    onChange={(e)=> setPickup(e.target.value)}
+                />
+                <Input 
+                value={dropoff}
+                placeholder="Where to?"
+                onChange={(e)=> setDropoff(e.target.value)}
+                />
             </InputBoxes>
 
             <PlusIcon src="https://img.icons8.com/ios/50/9CA3AF/plus-math.png"/>
@@ -38,11 +53,17 @@ const Search = () => {
         {/* Image Container */}
         {/* Saved Places */}
         {/* Confirm Locations*/}
-        <Confirm>
-        <button className="bg-black w-full text-white rounded text-center p-3">
+        <Link href={{
+            pathname: "/confirm",
+            query: {
+                pickup: pickup,
+                dropoff: dropoff
+            }
+        }}>
+        <ConfirmButtonContainer>
         Confirm Location
-        </button>
-        </Confirm>
+        </ConfirmButtonContainer>
+        </Link>
         </Wrapper>
     )
 }
@@ -58,7 +79,7 @@ bg-white px-3
 `
 
 const BackButton = tw.img`
-h-10 transform hover:scale-110
+h-10 transform hover:scale-110 cursor-pointer
 `
 
 const FromToIcons = tw.div`
@@ -98,6 +119,6 @@ const StarIcon = tw.img`
 bg-gray-400 w-10 h-10 p-2 rounded-full mr-2
 `
 
-const Confirm = tw.div`
-m-3
+const ConfirmButtonContainer = tw.div`
+bg-black text-white text-center mt-2 mx-4 px-4 py-3 text-2xl cursor-pointer rounded-full
 `
