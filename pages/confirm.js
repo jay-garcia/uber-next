@@ -10,8 +10,8 @@ const Confirm = () => {
     const router = useRouter()
     const {pickup, dropoff} = router.query
 
-    const [pickupCoordinates, setPickupCoordinates] = useState() // Initialize some data storage
-    const [dropoffCoordinates, setDropoffCoordinates] = useState()
+    const [pickupCoordinates, setPickupCoordinates] = useState([0, 0]) // Initialize some data storage
+    const [dropoffCoordinates, setDropoffCoordinates] = useState([0, 0])
 
     const getPickupCoordinates = (pickup) => {
         //Fetch function
@@ -68,7 +68,7 @@ const Confirm = () => {
             
             <RideContainer>
 
-                <RideSelector />
+                <RideSelector pickupCoordinates={pickupCoordinates} dropoffCoordinates={dropoffCoordinates}/>
 
                 <ConfirmButtonContainer>
                     <ConfirmButton>

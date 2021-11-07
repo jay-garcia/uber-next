@@ -24,3 +24,7 @@ m-3
 
 13. (Homework)
     -Add Back Button to go back to Search page.
+
+14. (Homework)
+    -Finish the Uber Clone and add your own touch (Add dark mode? additional functionality)
+    -Submit project to aurtable and fill out survey
